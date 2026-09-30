@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Descubre nuestra colección de cafés.">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./Images/icons/icon-192x192.png">
+
+    <meta name="apple-mobile-web-app-status-bar" content="#ffffff">
+    <meta name="theme-color" content="#fdfdfd">
+
+    <title>Coffee PWA</title>
+</head>
+
+<body>
+    <main class="home-page">
+        <header class="site-header">
+            <a class="brand" href="./index.html" aria-label="Coffee PWA, inicio">
+                <span class="brand-mark" aria-hidden="true">C</span>
+                <span>Coffee<span class="brand-accent">.</span></span>
+            </a>
+            <nav class="site-nav" aria-label="Navegación principal">
+                <a href="#collection">Colección</a>
+                <a href="#about">Acerca de</a>
+            </nav>
+        </header>
+
+        <section class="hero" aria-labelledby="hero-title">
+            <p class="eyebrow">UNA BUENA TAZA EMPIEZA AQUÍ</p>
+            <h1 id="hero-title">Encuentra tu próximo <span>café favorito.</span></h1>
+            <p class="hero-copy">Explora nuestra colección y descubre el origen, el tueste y la mejor forma de preparar cada café.</p>
+            <a class="hero-link" href="#collection">Explorar cafés <span aria-hidden="true">↓</span></a>
+        </section>
+
+        <section class="collection-section" id="collection" aria-labelledby="collection-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">SELECCIÓN PARA TI</p>
+                    <h2 id="collection-title">Nuestra colección</h2>
+                </div>
+                <p id="coffee-count" class="coffee-count" aria-live="polite"></p>
+            </div>
+            <div class="collection-controls">
+                <label class="search-field">
+                    <span class="visually-hidden">Buscar cafés</span>
+                    <span class="search-icon" aria-hidden="true">⌕</span>
+                    <input id="coffee-search" type="search" placeholder="Busca por nombre, sabor u origen…" autocomplete="off">
+                </label>
+                <label class="filter-field">
+                    <span class="visually-hidden">Filtrar por tipo de tueste</span>
+                    <select id="roast-filter">
+                        <option value="all">Todos los tuestes</option>
+                    </select>
+                </label>
+            </div>
+            <div class="container" aria-live="polite"></div>
+            <p id="empty-state" class="empty-state" hidden>No encontramos cafés con esos filtros. Prueba con otra búsqueda.</p>
+        </section>
+
+        <footer class="site-footer" id="about">
+            <a class="brand footer-brand" href="./index.html">
+                <span class="brand-mark" aria-hidden="true">C</span>
+                <span>Coffee<span class="brand-accent">.</span></span>
+            </a>
+            <p>Un buen café, una pausa y un momento para disfrutar.</p>
+        </footer>
+    </main>
+
+    <script src="./Javascript/app.js"></script>
+</body>
+
+</html>

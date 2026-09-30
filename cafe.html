@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conoce los detalles de este café.">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./Images/icons/icon-192x192.png">
+    <meta name="theme-color" content="#fdfdfd">
+    <title>Detalle del café | Coffee PWA</title>
+</head>
+
+<body>
+    <main class="coffee-detail-page">
+        <header class="detail-header">
+            <a class="brand" href="./index.html" aria-label="Coffee PWA, inicio">
+                <span class="brand-mark" aria-hidden="true">C</span>
+                <span>Coffee<span class="brand-accent">.</span></span>
+            </a>
+            <a class="back-link" href="./index.html">← Volver a la colección</a>
+        </header>
+
+        <p id="coffee-not-found" class="coffee-not-found" role="alert" hidden>
+            <span class="eyebrow">CAFÉ NO ENCONTRADO</span>
+            No encontramos ese café. Vuelve a la colección para elegir otro.
+            <a class="button-link" href="./index.html">Explorar cafés</a>
+        </p>
+
+        <article id="coffee-detail" class="coffee-detail" hidden>
+            <img id="coffee-image" class="coffee-detail-image" alt="">
+            <div class="coffee-detail-content">
+                <p id="coffee-roast-label" class="eyebrow"></p>
+                <h1 id="coffee-title"></h1>
+                <p id="coffee-description" class="coffee-detail-description"></p>
+                <dl class="coffee-facts">
+                    <div>
+                        <dt>Origen</dt>
+                        <dd id="coffee-origin"></dd>
+                    </div>
+                    <div>
+                        <dt>Tueste sugerido</dt>
+                        <dd id="coffee-roast"></dd>
+                    </div>
+                    <div>
+                        <dt>Perfil sugerido</dt>
+                        <dd id="coffee-profile"></dd>
+                    </div>
+                    <div>
+                        <dt>Preparación sugerida</dt>
+                        <dd id="coffee-preparation"></dd>
+                    </div>
+                </dl>
+            </div>
+        </article>
+    </main>
+
+    <script src="./Javascript/app.js"></script>
+</body>
+
+</html>
