@@ -148,16 +148,18 @@ function initializeCoffeeCollection() {
     const emptyState = document.querySelector("#empty-state");
     const roasts = [...new Set(coffeeCards.map((coffee) => coffee.tueste))];
 
-    roasts.forEach((roast) => {
-        const option = document.createElement("option");
-        option.value = roast;
-        option.textContent = `Tueste ${roast.toLowerCase()}`;
-        roastFilter.append(option);
-    });
+    if (roastFilter) {
+        roasts.forEach((roast) => {
+            const option = document.createElement("option");
+            option.value = roast;
+            option.textContent = `Tueste ${roast.toLowerCase()}`;
+            roastFilter.append(option);
+        });
+    }
 
     function updateCollection() {
-        const query = normalizeText(searchInput.value.trim());
-        const selectedRoast = roastFilter.value;
+        const query = searchInput ? normalizeText(searchInput.value.trim()) : "";
+        const selectedRoast = roastFilter ? roastFilter.value : "all";
         const filteredCoffees = coffeeCards
             .map((coffee, index) => ({ coffee, index }))
             .filter(({ coffee }) => {
@@ -175,12 +177,24 @@ function initializeCoffeeCollection() {
             });
 
         renderCoffeeCards(container, filteredCoffees);
-        resultCount.textContent = `${filteredCoffees.length} ${filteredCoffees.length === 1 ? "café" : "cafés"}`;
-        emptyState.hidden = filteredCoffees.length > 0;
+
+        if (resultCount) {
+            resultCount.textContent = `${filteredCoffees.length} ${filteredCoffees.length === 1 ? "café" : "cafés"}`;
+        }
+
+        if (emptyState) {
+            emptyState.hidden = filteredCoffees.length > 0;
+        }
     }
 
-    searchInput.addEventListener("input", updateCollection);
-    roastFilter.addEventListener("change", updateCollection);
+    if (searchInput) {
+        searchInput.addEventListener("input", updateCollection);
+    }
+
+    if (roastFilter) {
+        roastFilter.addEventListener("change", updateCollection);
+    }
+
     updateCollection();
 }
 
